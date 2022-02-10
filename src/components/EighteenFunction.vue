@@ -3,20 +3,12 @@
 		<div id="app">
 			{{ message }}
 		</div>
-		<v-footer dark padless>
-			<v-card class="flex" flat tile>
-				<v-card-title class="teal">
-					<strong class="subheading"
-						>Get connected with us on social networks!</strong
-					>
-					<v-spacer></v-spacer>
-				</v-card-title>
 
-				<v-card-text class="py-2 white--text text-center">
-					{{ new Date().getFullYear() }} — <strong>Vuetify</strong>
-				</v-card-text>
-			</v-card>
-		</v-footer>
+		<div>
+			<input id="age" type="text" placeholder="Enter your age" />
+			<button v-on:click="is-adult">Check!</button>
+		</div>
+		<div id="result"></div>
 	</v-container>
 </template>
 
@@ -26,5 +18,10 @@ export default {
 	data: () => ({
 		message: "APP to tell if someone is adult after write their age",
 	}),
+	methods: {
+		isAdult: function () {
+			"result".innerHTML = "age".value >= 18 ? "Is adult" : "Is minor";
+		},
+	},
 };
 </script>
